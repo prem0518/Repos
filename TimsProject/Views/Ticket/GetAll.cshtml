@@ -1,0 +1,78 @@
+﻿
+
+@model IEnumerable<TimsProject.Models.Tickets>
+
+@{
+    ViewData["Title"] = "Ticket";
+}
+
+<div class="col-6">
+    <h2 class="text-primary">Ticket</h2>
+</div>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        @*<div class="col-6">
+                <h4>Employee List</h4>
+            </div>*@
+        <div class="col-12">
+            <button><a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; background-color: #ff8d00 " asp-area="" asp-controller="Ticket" asp- asp-action="Create">Register</a></button>
+        </div>
+        @*<div>
+                <a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; margin: 10px; background-color: #ff8d00;float: right" asp-area="" asp-controller="Admin" asp- asp-action="Addproduct">Add Category</a>
+            </div>*@
+    </div>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        TicketId
+                    </th>
+                    <th>
+                        TicketDate
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        EmployeeId
+                    </th>
+                    <th>
+                        ApprovalStatus
+                    </th>
+                    <th>
+                        TicketResponse
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                <tr>
+                    <td width="10%">@obj.TicketId</td>
+                    <td width="20%">@obj.TicketDate</td>
+                    <td width="20%">@obj.Description</td>
+                    <td width="10%">@obj.EmployeeId</td>
+                    <td width="40%">@obj.ApprovalStatus</td>              
+                    <td width="40%">@obj.TicketResponse</td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Ticket" asp-route-Id="@obj.TicketId" asp-action="update" class"btn btn-primary mx-1">
+                                <i class="fas fa-edit"></i>Edit
+                            </a>
+                            <a asp-controller="Ticket" asp-route-Id="@obj.TicketId" asp-action="Delete" class"btn btn-danger mx-3">
+                                <i class="fas fa-trash-alt"></i>Delete
+                            </a>
+                        </div>>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+
+

@@ -1,0 +1,80 @@
+﻿@model TimsProject.Models.Tickets
+@{
+    ViewData["Title"] = "Add Ticket";
+}
+
+
+<form method="post" asp-controller="Ticket" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h1 class="text-info p1-3">Add Ticket</h1>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="TicketId"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="TicketId" class="form-control" />
+                        <span asp-validation-for="TicketId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="TicketDate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="TicketDate" class="form-control" />
+                        <span asp-validation-for="TicketDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Description"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="EmployeeId"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="EmployeeId" class="form-control" />
+                        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                    </div>
+                </div>
+                
+
+
+                <div class="form-group row">
+                    @*<div class="col-6 offset-4 row">*@
+                    <div class="col-4 offset-4">
+                        <input type="submit" class="btn btn-info w-100" value="Add" />
+                    </div>
+                    <div class="col">
+                        @if (ViewBag.Message != null)
+                        {
+                            //<a class="nav-link text-dark btn-primary font-weight-bold" style="margin: 10px; background-color: #ffdd0f;top: 2px " asp-area="" asp-controller="Admin" asp- asp-action="Get">Get All Products</a>
+                            <a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; margin: 10px; background-color: #ff8d00;float: right" asp-area="" asp-controller="Ticket" asp- asp-action="GetAll">Get All Tickets</a>
+                            <script type="text/javascript">
+                                                window.onload = function () {
+                                                    alert("@ViewBag.Message");
+
+                                                };
+                            </script>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+    </div>
+</form>
+
+
